@@ -72,7 +72,7 @@ const Login = () => {
 
     return (
         <div className="App">
-            <h1>Google Authenticatio</h1>
+            <h1>Google Authentication</h1>
             <div>
                 {
                     user.isSiggedIn ? <button onClick={googleSignOut}>Google Sign Out</button> :
