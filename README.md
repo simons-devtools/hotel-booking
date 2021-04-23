@@ -1,7 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Hotel-auth overview
+This project was bootstrapped with [Create React App](https://github.com/c-moX).
 
-## Available Scripts
-
-In the project directory, you can run:
+## Note the point:
+Please active (two) hotel-auth and hotel-serverfile... [hotel-server file]().
 
 ### `npm start`
