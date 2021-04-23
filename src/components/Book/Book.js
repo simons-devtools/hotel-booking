@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useContext, useState } from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> e0eb9b6f70cf21b84550134161438cca62cf0b15
 import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import 'date-fns';
@@ -6,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
     MuiPickersUtilsProvider,
+<<<<<<< HEAD
     KeyboardDatePicker,
 } from '@material-ui/pickers';
 import Button from '@material-ui/core/Button';
@@ -14,6 +19,16 @@ import Bookings from '../Bookings/Bookings';
 const Book = () => {
     const { bedType } = useParams();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+=======
+    KeyboardTimePicker,
+    KeyboardDatePicker,
+} from '@material-ui/pickers';
+import Button from '@material-ui/core/Button';
+
+const Book = () => {
+    const { bedType } = useParams();
+    const [loggedInUser, setLoggedInUser] = useState(UserContext);
+>>>>>>> e0eb9b6f70cf21b84550134161438cca62cf0b15
 
     // The first commit of Material-UI
     const [selectedDate, setSelectedDate] = useState({
@@ -34,6 +49,7 @@ const Book = () => {
         setSelectedDate(newDates);
     };
 
+<<<<<<< HEAD
     // Handle Booking func
     const handleBooking = () => {
         let newBooking = { ...loggedInUser, ...selectedDate };
@@ -51,6 +67,11 @@ const Book = () => {
     return (
         <div style={{ textAlign: 'center' }}>
             <h1>Hello {loggedInUser.name} let's book a {bedType} room.</h1>
+=======
+    return (
+        <div style={{ textAlign: 'center' }}>
+            <h1>Hello {loggedInUser.name} Let's book a {bedType} Room.</h1>
+>>>>>>> e0eb9b6f70cf21b84550134161438cca62cf0b15
             <p>Want a <Link to="/home">different room?</Link> </p>
 
             <div>
@@ -80,10 +101,14 @@ const Book = () => {
                         />
                     </Grid>
                 </MuiPickersUtilsProvider>
+<<<<<<< HEAD
                 <Button onClick={handleBooking} variant="contained" color="primary">Book Now</Button>
             </div>
             <div>
                 <Bookings></Bookings>
+=======
+                <Button variant="contained" color="primary">Book Now</Button>
+>>>>>>> e0eb9b6f70cf21b84550134161438cca62cf0b15
             </div>
         </div>
     );
