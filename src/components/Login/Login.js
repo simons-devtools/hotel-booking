@@ -39,15 +39,28 @@ const Login = () => {
                     email: email,
                     photo: photoURL
                 }
-                setUser(siggedInUser);
+                // setUser(siggedInUser);
                 setLoggedInUser(siggedInUser);
-                history.replace(from);
+                storeAuthToken(); // Store Auth Token
                 // console.log(siggedInUser);
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
+            });
+    }
+
+    const storeAuthToken = () => {
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+            .then((idToken) => {
+                // Send token to your backend via HTTPS
+                sessionStorage.setItem('token', idToken);
+                history.replace(from);
+                // console.log(idToken);
+            })
+            .catch((error) => {
+                console.log(error);
             });
     }
 
@@ -76,14 +89,14 @@ const Login = () => {
             <div>
                 {
                     user.isSiggedIn ? <button onClick={googleSignOut}>Google Sign Out</button> :
-                        <button onClick={googleSignIn}>Google Sign In</button>
+                        <button onClick={googleSignIn} style={{ padding: "10px 30px" }}>Google Sign In</button>
                 }
             </div>
-            <div>
+            {/* <div>
                 <img src={user.photo} alt="" style={{ marginTop: '10px' }} />
                 <h4>Name: {user.name}</h4>
                 <p>Email: {user.email}</p>
-            </div>
+            </div> */}
         </div>
     );
 };
